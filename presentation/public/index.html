@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prsntly</title>
+</head>
+
+<body>
+    Upload Presentation: <input type="file" id="presentation-input" accept=".ppt,.pptx,.pps,.ppsx">
+    <span id="upload-status"></span>
+    <script>
+        let code = '';
+        const presentationInput = document.querySelector('#presentation-input');
+        const uploadStatusSpan = document.querySelector('#upload-status');
+
+        let images = [];
+
+        presentationInput.addEventListener('change', () => {
+            const file = presentationInput.files[0];
+
+            if (file !== null) {
+                uploadStatusSpan.innerHTML = 'Uploading presentation...'
+                const fileReader = new FileReader();
+                fileReader.readAsArrayBuffer(file);
+
+                fileReader.onload = async event => {
+                    // generate code
+                    const content = event.target.result;
+
+                    const request = await fetch('/create-presentation?filename=' + file.name, {
+                        method: 'POST',
+                        headers: {
+                            'content-type': "application/octet-stream",
+                            'content-length': content.length,
+                        },
+                        body: content
+                    });
+
+                    const response = await request.json();
+                    if (response.status != 200) {
+                        console.error(response.message);
+                    } else {
+                        if (response.data != null) {
+                            images = response.data.images;
+                            code = response.data.code;
+                        }
+                        uploadStatusSpan.innerHTML = response.message;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
