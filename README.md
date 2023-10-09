@@ -1,4 +1,4 @@
-# prsnt.app
+# prsntly.live
 
 The main project repository for CSCE 4623 - Mobile Programming. This contains all the source code for the project. Right now, it is still being developed, but a road map of features will be included to show where we are at.
 
