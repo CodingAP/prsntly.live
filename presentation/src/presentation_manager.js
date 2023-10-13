@@ -10,6 +10,7 @@
  */
 
 import fs from 'fs';
+import path from 'path';
 import LOGGER from './logger.js';
 import { __dirname } from './common.js';
 import * as Types from './types.js'

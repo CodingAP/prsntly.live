@@ -41,9 +41,7 @@ router.post('/create-presentation', async (request, response, next) => {
 
         const presentation = PresentationManager.presentations.get(code);
         presentation.count = imageCount;
-        presentation.drawingSurfaces = new Array(imageCount).fill(0).map(_ => {
-            return { drawables: [], blame: {} };
-        });
+        presentation.drawingSurfaces = new Array(imageCount).fill(0).map(_ => new Array());
 
         // clean up all files
         if (fs.existsSync(filename)) fs.unlinkSync(filename);
