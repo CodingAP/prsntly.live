@@ -3,7 +3,7 @@
 The main project repository for CSCE 4623 - Mobile Programming. This contains all the source code for the project. Right now, it is still being developed, but a road map of features will be included to show where we are at.
 
 #### by Alex Prosser
-##### Last updated 10/8/2023
+##### Last updated 10/13/2023
 
 ## How to use
 
@@ -33,4 +33,6 @@ This is my Trello board to get myself on track
 
 ## Open Source Libraries
 
-There is no code to have an open source library to use
+- [Express](https://expressjs.com/) - File and API Routing
+- [dotenv](https://www.npmjs.com/package/dotenv) - Reading from file environment variables
+- [winston](https://www.npmjs.com/package/winston) - Logging

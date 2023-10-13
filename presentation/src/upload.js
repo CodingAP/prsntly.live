@@ -4,14 +4,14 @@
  * The uploading functions for the backend
  * 
  * by Alex Prosser
- * 10/8/2023
+ * 10/13/2023
  */
 
 import fs from 'fs';
 import path from 'path';
 import { __dirname } from './common.js';
 
-const uploadPath = path.join(__dirname, 'uploaded', 'raw_presentations');
+const uploadPath = path.join(__dirname, 'uploaded', '.raw_presentations');
 
 /**
  * Upload the presentation to the server where it can be processed
@@ -19,12 +19,12 @@ const uploadPath = path.join(__dirname, 'uploaded', 'raw_presentations');
  * @param {Request} request - Request from the router
  * @returns Filename where the uploaded powerpoint is
  */
-const uploadPresentation = (request) => {
+const uploadPresentation = (request, code) => {
     return new Promise((resolve, reject) => {
         // create upload folder if it doesn't exist
         if (!fs.existsSync(uploadPath)) fs.mkdirSync(uploadPath, { recursive: true });
 
-        const filename = path.join(uploadPath, request.query.filename);
+        const filename = path.join(uploadPath, code + path.extname(request.query.filename));
 
         // stop any files that are not powerpoints
         const acceptedExtensions = ['.ppt', '.pptx', '.pps', '.ppsx'];

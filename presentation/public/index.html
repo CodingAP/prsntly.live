@@ -29,10 +29,10 @@
                     // generate code
                     const content = event.target.result;
 
-                    const request = await fetch('/create-presentation?filename=' + file.name, {
+                    const request = await fetch('api/create-presentation?filename=' + file.name, {
                         method: 'POST',
                         headers: {
-                            'content-type': "application/octet-stream",
+                            'content-type': 'application/octet-stream',
                             'content-length': content.length,
                         },
                         body: content
