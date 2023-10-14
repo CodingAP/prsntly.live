@@ -1,10 +1,19 @@
 /**
- * Holds the global state for a presentation 
+ * Holds all the information for a presentation 
  * 
  * @typedef {object} Presentation
  * 
- * @property {Map<string, Point>} pointers map of UUID to points
- * @property {List<List<Drawable>>} drawingSurfaces list of drawables for every slide
+ * @property {PresentationState} globalState Current state of presentation
+ * @property {Set<string>} connections All UUIDs connected to presentation
+ */
+
+/**
+ * Holds the global state for a presentation
+ *
+ * @typedef {object} PresentationState
+ *
+ * @property {Map<string, (Point | null)>} pointers map of UUID to points
+ * @property {Drawable[][]} drawingSurfaces list of drawables for every slide
  * @property {number} currentSlide index of current slide
  * @property {number} count number of slides
  */

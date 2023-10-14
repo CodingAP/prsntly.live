@@ -40,8 +40,8 @@ router.post('/create-presentation', async (request, response, next) => {
         LOGGER.info(`PDF converted to images in presentations/${code}!`);
 
         const presentation = PresentationManager.presentations.get(code);
-        presentation.count = imageCount;
-        presentation.drawingSurfaces = new Array(imageCount).fill(0).map(_ => new Array());
+        presentation.globalState.count = imageCount;
+        presentation.globalState.drawingSurfaces = new Array(imageCount).fill(0).map(_ => new Array());
 
         // clean up all files
         if (fs.existsSync(filename)) fs.unlinkSync(filename);

@@ -5,10 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>prsntly.live</title>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 </head>
 
 <body>
-    <canvas width="960" height="540"></canvas>
+    <canvas width="960" height="540"></canvas><br />
+    <button id="previous-slide">Previous Slide</button>
+    <button id="next-slide">Next Slide</button><br />
+    <span id="connect-message"></span>
     <script src="/js/presenter.js"></script> 
 </body>
 

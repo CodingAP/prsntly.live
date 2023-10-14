@@ -36,3 +36,4 @@ This is my Trello board to get myself on track
 - [Express](https://expressjs.com/) - File and API Routing
 - [dotenv](https://www.npmjs.com/package/dotenv) - Reading from file environment variables
 - [winston](https://www.npmjs.com/package/winston) - Logging
+- [socket.io](https://socket.io/) - Real-time connection

@@ -22,7 +22,7 @@ const router = express.Router();
 router.get('/:code', async (request, response, next) => {
     if (PresentationManager.presentations.has(request.params.code)) {
         response.status(200);
-        response.json(PresentationManager.presentations.get(request.params.code));
+        response.json(PresentationManager.presentations.get(request.params.code).globalState);
     } else {
         response.status(404);
         response.send('Presentation not found!')
@@ -31,7 +31,7 @@ router.get('/:code', async (request, response, next) => {
 
 // Returns the image of a slide from a presentation
 router.get('/:code/:id', async (request, response, next) => {
-    const presentation = PresentationManager.presentations.get(request.params.code);
+    const presentation = PresentationManager.presentations.get(request.params.code).globalState;
     if (presentation !== undefined) {
         const id = parseInt(request.params.id);
         if (id !== NaN && id > 0 && id <= presentation.count) {

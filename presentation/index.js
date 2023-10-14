@@ -14,18 +14,24 @@
  */
 
 import fs from 'fs';
-import express from 'express';
+import http from 'http';
 import path from 'path';
 import 'dotenv/config';
+import express from 'express';
+import { Server } from 'socket.io';
 
-import LOGGER from './src/logger.js';
 import { __dirname } from './src/common.js';
-import mainRouter from './src/routers/main.js';
+import LOGGER from './src/logger.js';
 import apiRouter from './src/routers/api.js';
+import mainRouter from './src/routers/main.js';
 import presentationRouter from './src/routers/presentation.js';
+import PresentationManager from './src/presentation_manager.js';
 
 const app = express();
+const server = http.createServer(app);
 const PORT = 1337 || process.env.PORT;
+
+PresentationManager.setupConnections(new Server(server));
 
 // clean up uploaded files
 const uploadDirectory = path.join(__dirname, 'uploaded');
@@ -48,7 +54,7 @@ app.use('/', mainRouter);
 app.use('/api', apiRouter);
 app.use('/presentations', presentationRouter);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     LOGGER.info(`prsntly.live listening on port ${PORT}`);
 });
 
