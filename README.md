@@ -3,7 +3,7 @@
 The main project repository for CSCE 4623 - Mobile Programming. This contains all the source code for the project. Right now, it is still being developed, but a road map of features will be included to show where we are at.
 
 #### by Alex Prosser
-##### Last updated 10/16/2023
+##### Last updated 11/13/2023
 
 ## How to use
 
@@ -25,6 +25,14 @@ October 17-23:
 - Finish prototype
 - Create Figma board for both web and app
 - Finish design document for MVP
+
+October 23-November 13:
+- Not much work was done 
+
+November 14-20:
+- Create Flutter project
+- Make MVP work and functional
+- Start work on unified UI
 
 ## Documentation
 
