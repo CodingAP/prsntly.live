@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prsntly.live</title>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+
+<body>
+    <canvas width="960" height="540"></canvas><br />
+
+    <button id="previous-slide">Previous Slide</button>
+    <button id="next-slide">Next Slide</button><br />
+    <button id="activate-drawing">Activate Drawing</button>
+    <button id="activate-pointer">Activate Pointer</button><br />
+    <div id="drawing-controls">
+        <button id="drawing-eraser">Eraser</button>
+        <button id="drawing-freedraw">Freedraw</button>
+        <button id="drawing-highlighter">Highlighter</button>
+        <button id="drawing-rectangle">Rectangle</button><br />
+
+        <button id="drawing-undo">Undo</button>
+    </div>
+
+    <span id="connect-message"></span>
+    <script src="/js/presenter.js"></script> 
+</body>
+
+</html>
